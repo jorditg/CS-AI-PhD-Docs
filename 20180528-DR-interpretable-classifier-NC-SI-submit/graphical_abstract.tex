@@ -1,0 +1,34 @@
+\documentclass[times,twocolumn,final,authoryear]{elsarticle}
+
+\begin{document}
+
+\clearpage
+\thispagestyle{empty}
+\ifpreprint
+  \vspace*{-1pc}
+\fi
+
+\begin{table*}[!th]
+\ifpreprint\else\vspace*{-5pc}\fi
+
+\section*{Graphical Abstract}
+
+\vskip1pc
+\fbox{
+\begin{tabular}{p{.4\textwidth}p{.5\textwidth}}
+\bf A Deep Learning Interpretable Classifier for Diabetic Retinopathy Disease Grading  \\
+Jordi de la Torre, Aida Valls, Domenec Puig 
+
+\includegraphics[width=.3\textwidth]{top-elslogo-fm1.pdf}
+& 
+In this paper we present a diabetic retinopathy deep learning interpretable classifier able to classify retina images into different levels of severity with good performance, as well as of explaining its results by assigning a score for every point in the hidden and input spaces, evaluating its contribution to the final classification in a linear way. We propose a new pixel-wise score propagation model that for every neuron, divides the observed output score into two components. With this method, the generated visual maps can be easily interpreted by an ophthalmologist in order to find the underlying statistical regularities that help to the diagnosis of this eye disease.
+%}\\
+\end{tabular}
+}
+
+\end{table*}
+
+
+\end{document}
+
+%%

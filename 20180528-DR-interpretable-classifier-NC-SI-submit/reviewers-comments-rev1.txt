@@ -1,0 +1,99 @@
+Answers to the editor's and reviewers' comments:
+
+
+Reviewer #3: In this paper, an interpretable classier was proposed to classify retina images into the different levels of diabetic retinopathy severity. Examples are provided to verify the advantages of the proposed results, and results demonstrated the effectiveness of proposed approach.
+However, the following comments might be helpful when the authors revise their paper.
+
+1)      Abstract of this paper should be further refined. In this paper, the abstract notes only problems, it does not address the details of the method to the problem.
+
+ANSWER: The abstract has been changed in order to focus on the contributions of the new method proposed in this paper.
+
+* PROPOSAL:
+In this paper we present a diabetic retinopathy deep learning interpretable classifier able to classify retina images into different levels of severity with good performance, as well as of explaining its results by assigning a score for every point in the hidden and input spaces, evaluating its contribution to the final classification in a linear way. We propose a new pixel-wise score propagation model that divides the observed output score into two components. With this method, the generated visual maps can be easily interpreted by an ophthalmologist in order to find the underlying statistical regularities that help to the diagnosis of this eye disease.
+*
+
+2)      In introduction of this paper, the references are too few to show the motivation of this study. The author should do more research on this problem and update the references.
+
+ANSWER: We included more references to state-of-the-art deep learning classifiers of images for general-purpose tasks. We also added a paragraph with references to medical image diagnosis specific classifiers. 
+
+3)      In section 3 (on page 10), the variables in Figure 1 are not right according to the above descriptions.
+
+* PENDING *
+
+4)      In sections 3.3-3.4 (on page 13), the variables in Figures 4-5 are too small.
+
+ANSWER: We changed the font in order to solve this problem.
+
+5)      The results should be compared with some other methods.
+
+ANSWER: We compared our predictive model with state-of-the-art one. We emphasize that the aim of the paper is not to design the best classifier but to design one with good performance and to extract from it result explanations. 
+
+ON? COM? CAL DIR-HO
+
+
+6)      The conclusion should summarize the work and the advantages of the methods. Please describe clearly.
+
+* PENDING *
+
+7)      There is a need to polish the English of the whole paper.
+
+* PENDING *
+
+----------------------
+
+Reviewer #4: In this work, the authors proposed an interpretable classifier to classify retina images into different levels of diabetic retinopathy severity and with good performance. Besides, this model can explain the results by assigning a score for every point in the hidden input spaces. The proposed interpretable solution is interesting and has some novelty. The experimental results also show the advantage of this model. However, there are several issues which should be addressed.
+
+
+1. The authors declared the stacking of small size convolutions is more efficient than the usage of big size convolutions. With a lower number of parameters is possible to generate more nonlinear relationships between the pixels that only using a unique convolution of higher size. Following this idea, they used 3x3 convolutions in feature layers. Why not employ 2x2 or 4x4 convolutions? The authors need to give some explanations or some experiments to support their setting.
+
+ANSWER: We added references to previous works where the statements are proved both experimentally and theoretically. In precedent literature, as well as we shown in our previous paper, an odd number of filters is preferred mainly due to their symmetry when used with zero padding, being even filters necessarily asymmetric. We have clarified this also in section 4.2.1.
+
+2. In disease diagnosis problem, the precision and recall are always received more concerning from researchers. The higher precision rate means that we can find the lesions present early and make reasonable treatment plans for them. Hence, the authors need to employ some metrics, such as accuracy, precision, recall and Matthews correlation coefficient, in their prediction experiments. These metrics will help us to find the advantages of the proposed method.
+
+ANSWER: We added referred metrics for prediction of standarised Messidor-2 dataset. These metrics are also available for other works and allow the comparison wth them.
+
+NO ES PODEN AFEGIR TAMBE PER EYEPACS?
+
+3. The authors also need to compare their methods with other related ones since there are really a lot of deep learning based methods for image classification.
+
+ANSWER: First of all, we want to say that the aim of our study is not to design a better classifier than state of the art but to design a method that is self-explanaible. In this sense, we have included a comparison table of our results with the latest prediction model for diabetic retinopathy that uses the same conditions than our work, in terms of sensitivity and specificity. Replicating other models is not possible since in many papers they report results with other datasets or without a full description of all the components of the model.
+
+------------------------
+
+Reviewer #5: In this paper, the authors present an interpretable classifier able to classify retina images into the different levels of diabetic retinopathy severity with good performance, as well as of explaining its results by assigning a score for every point in the hidden and input spaces, evaluating its contribution to the final classification in a linear way.
+
+(1)     What activation maps did you use? Do you consider leaky ReLU or parametric ReLU?
+
+ANSWER: We use ReLU. We tested also leaky ReLU, ELU and SeLU with similar results. As performance was the same we used the simplest activation function (see comment in section 4.2.1).
+
+(2)     Some CNN related papers can help the readers understand your paper better, see Classification of Alzheimer's Disease Based on Eight-Layer Convolutional Neural Network with Leaky Rectified Linear Unit and Max Pooling, and Polarimetric synthetic aperture radar image segmentation by convolutional neural network using graphical processing units.
+
+ANSWER: We added this paper as a reference in the new paragraph related with medical diagnosis classifiers at the introduction.
+
+(3)     How many convolutional layers did you consider to use? How do you determine the kernel size and stride size?
+
+ANSWER: In section 4.2.2 we describe the model in detail. We use 17 layers and 3x3 convolutions with stride 1x1.
+
+(4)     Which pooling technique is better? Max pooling or average pooling?
+
+ANSWER: We use max-pooling for features and average pooling in the last layer. We tried to use average pooling in every layer with worse results. Max-pooling in last layer gave also worse results.
+
+(5)     What will happen if you not use dropout layer?
+
+ANSWER: In our final model we don't use dropout. For this particular application, the models tested using dropout in last layer doesn't improve results.
+
+(6)     Figure 11, we seldom count the layers without learnable weights.
+
+ANSWER: In Fig. 11, Input, AvgPool and Output are the only blocks without learnable weights. 
+
+S'HAURIA DE DIR A L'ARTICLE?
+
+(7)     Did you consider to use transfer learning for your task?
+
+ANSWER: Transfer learning is also possible. Reference [14] uses transfer learning using a pretrained model. The main concern is that available pre-trained models are based on large networks, with more than 20 million of parameters. We wanted to design a small model that could achieve a good performance, comparable to those large ones. Our model has only about 300.000 parameters and is able to work even on a mobile phone. Having an small model helps activating the procedures for explainability (with backpropagation) that give a considerable added value to the classification model as the user receives feedback about the reasons why an image is classified into a certain class.
+
+ES POT DIR QUE AIXÒ SERIA MÉS DIFICIL, O MENYS CLAR, EN UNA XARXA GRAN?
+
+ALGO D'AIXÒ S'HAURIA D'AFEGIR A L'ARTICLE, POTSER A LES CONCLUSIONS FINALS.
+
+

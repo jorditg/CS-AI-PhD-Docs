@@ -1,0 +1,54 @@
+\documentclass{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{gensymb} % \textdegree
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+\pagestyle{empty}
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+    
+\begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [block] (input) {Eye Raw Image};
+    \node [block, below of=input] (crinp) {Center Crop};
+    \node [block, right of=crinp, node distance=3cm] (r1inp) {72\textdegree Rotated Center Crop};
+    \node [block, right of=r1inp, node distance=3cm] (r2inp) {144\textdegree Rotated Center Crop};
+    \node [block, right of=r2inp, node distance=3cm] (r3inp) {216\textdegree Rotated Center Crop};
+    \node [block, right of=r3inp, node distance=3cm] (r4inp) {288\textdegree Rotated Center Crop};
+    \node [block, below of=r2inp] (model) {Deep Learning Model};
+    \node [block, below of=model] (pred) {Geometric Mean of the 5 Predictions};
+% Draw edges
+    \path [line] (input) -- (crinp);
+    \path [line] (input) -| (r1inp);
+	\path [line] (input) -| (r2inp);
+	\path [line] (input) -| (r3inp);
+	\path [line] (input) -| (r4inp);
+
+	\path [line] (crinp) -- (model);
+	\path [line] (r1inp) -- (model);
+	\path [line] (r2inp) -- (model);
+	\path [line] (r3inp) -- (model);
+	\path [line] (r4inp) -- (model);
+	
+	\path [line] (model) -- (pred);
+		
+		
+
+
+\end{tikzpicture}
+
+
+\end{document}

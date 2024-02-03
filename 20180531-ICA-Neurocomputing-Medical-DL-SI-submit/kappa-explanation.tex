@@ -1,0 +1,23 @@
+Weighted Kappa index ($\kappa$) is used in many medical diagnosis systems for inter-rater agreement evaluation. Many multi-class classification cases in medicine are really ordinal regression problems, ie. class ordinality is important. because the diseases have different degrees of severity, which are naturally ordered from mild to the most critical cases. If the diagnose is based on image analysis, the classification is even more difficult because in the interpretation of the image data normally is present some level of subjectivity that sometimes makes the conclusions of different experts to differ \citep{hripcsak2002measuring}.
+Weighted kappa is able to measure the level of discrepancy of a set of diagnosis made by different raters over the same population \citep{viera2005understanding}. Depending on the value of the index, the strength of agreement between the raters can be evaluated (see table \ref{tab:kappa_int}). 
+
+Examples of the usage of the $\kappa$ index for measuring inter-rater agreement in the medical context are: the measure of reliability in ultrasound scans interpretation \citep{hintz2007interobserver}, the evaluation of expert agreement in diagnosis of glaucoma \citep{varma1992expert}, the evaluation of reliability of radiographic assessment \citep{gunther1999reliability}, the inter-observer agreement evaluation in diabetic retinopathy detection \citep{patra2009interobserver}, among many others. 
+
+$\kappa$ takes into account the ordering of the classes and penalizes the erroneous predictions in function of the distance between the real and the predicted class. In that way, a failure in a prediction that is close to the real category is considered better than a prediction that is farther. The penalization weights depend on the type of the chosen weighted kappa. In a linear penalization the weight is proportional to the distance, in the quadratic weighted kappa ($\kappa$) - the one studied in this paper - the penalization is proportional to the square of the distance. %Weighted kappa allow the definition of weight matrices of all kinds. 
+
+
+\begin{table}
+	\caption{\label{tab:kappa_int}Table for interpretation of Weighted Kappa, after Landis \& Koch (1977)}	
+	\centering
+	\begin{tabular}{llr}
+		\hline
+		$\kappa$    & Strength of agreement \\
+		\hline
+		<0.20 		& Poor \\
+		0.21-0.40 	& Fair \\
+		0.41-0.60 	& Moderate \\
+		0.61-0.80 	& Good \\
+		0.81-1.00 	& Very good \\
+		\hline
+	\end{tabular}
+\end{table}

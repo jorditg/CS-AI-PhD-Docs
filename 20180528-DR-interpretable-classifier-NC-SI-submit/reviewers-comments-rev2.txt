@@ -1,0 +1,96 @@
+Dear Editors,
+
+Sincerest thanks for your response and reviewers' comments on our manuscript helping us on improving the quality of our final work. 
+
+Here below we answer reviewer's questions about our paper:
+
+Reviewer #3: In this paper, an interpretable classier was proposed to classify retina images into the different levels of diabetic retinopathy severity. Examples are provided to verify the advantages of the proposed results, and results demonstrated the effectiveness of proposed approach.
+However, the following comments might be helpful when the authors revise their paper.
+
+1)      Abstract of this paper should be further refined. In this paper, the abstract notes only problems, it does not address the details of the method to the problem.
+
+* ANSWER: The abstract has been changed in order to focus on the contributions of the new method proposed in this paper.
+(see page 1) *
+
+2)      In introduction of this paper, the references are too few to show the motivation of this study. The author should do more research on this problem and update the references.
+
+* ANSWER: We have redesigned the introduction. Now, we include a broad revision of deep learning, more references to state-of-the-art general purpose deep learning image classifiers, references to specific medical diagnosis systems based on deep learning, diabetic retinopathy deep learning classifiers and references to score map generation algorithms. *
+
+3)      In section 3 (on page 10), the variables in Figure 1 are not right according to the above descriptions.
+
+* ANSWER: We added a missing notation definition (Proposition 1, see page 11) *
+
+4)      In sections 3.3-3.4 (on page 13), the variables in Figures 4-5 are too small.
+
+ANSWER: We modified the graphs to improve visibility. (see pages 14 and 15) *
+
+5)      The results should be compared with some other methods.
+
+* ANSWER: We added a comparison of our predictive model with state-of-the-art one, reference [19]. We included statistics of our model predictions comparable with the published ones of reference [19], using the same public test dataset (Messidor-2). *
+
+6)      The conclusion should summarize the work and the advantages of the methods. Please describe clearly.
+
+* ANSWER: We modified the conclusions to also clarify the advantadges of our solution (see page 30), that are clarified below: 
+The strengths of our solution are not having better results than state-of-the-art but, that using a two orders of magnitude smaller model, it is possible to obtain human performance QWK multi-class classification performance, specificities and sensitivities higher than 90% in the prediction of severe cases of diabetic retinopathy and more importantly, explanation maps. The reduced size of our model allows also its use in low resources devices, like mobile phones, important for applications of our funding project. 
+*
+
+7)      There is a need to polish the English of the whole paper.
+
+* ANSWER: we revised the paper accordingly. *
+
+----------------------
+
+Reviewer #4: In this work, the authors proposed an interpretable classifier to classify retina images into different levels of diabetic retinopathy severity and with good performance. Besides, this model can explain the results by assigning a score for every point in the hidden input spaces. The proposed interpretable solution is interesting and has some novelty. The experimental results also show the advantage of this model. However, there are several issues which should be addressed.
+
+
+1. The authors declared the stacking of small size convolutions is more efficient than the usage of big size convolutions. With a lower number of parameters is possible to generate more nonlinear relationships between the pixels that only using a unique convolution of higher size. Following this idea, they used 3x3 convolutions in feature layers. Why not employ 2x2 or 4x4 convolutions? The authors need to give some explanations or some experiments to support their setting.
+
+* ANSWER: We added references to previous works where such statements are proved both experimentally and theoretically. In precedent literature, as well as we have already shown in our previous paper, an odd number of filters is preferred mainly due to their symmetry when used with zero padding, being even filters necessarily asymmetric. We have clarified this also in section 4.2.1 (see page 19). *
+
+2. In disease diagnosis problem, the precision and recall are always received more concerning from researchers. The higher precision rate means that we can find the lesions present early and make reasonable treatment plans for them. Hence, the authors need to employ some metrics, such as accuracy, precision, recall and Matthews correlation coefficient, in their prediction experiments. These metrics will help us to find the advantages of the proposed method.
+
+* ANSWER: We added referred metrics not only for prediction of our test set but also for prediction of standarised Messidor-2 dataset. 
+Messidor-2 metrics are also available for other works and allow the comparison of our model with them. (see page 24) *
+
+3. The authors also need to compare their methods with other related ones since there are really a lot of deep learning based methods for image classification.
+
+* ANSWER: As previosly stated in the answer to previous reviewer, we have included a comparison table of our results with the latest prediction model for diabetic retinopathy, actual state of the art solution for grouped prediction of the most severe cases of the disease (reference [19]). We tried to replicate the same conditions to make our results comparable in terms of sensitivity and specificity. Just emphasize that the aim of both works is different. In our work, we segregate the prediction into different severity levels and [19] is a binary classification for predicting the most severe cases of the disease. The comparison have been done grouping together the results of the segregated classes that conform the positive prediction in [19]. Replicating other models has not been possible since in many papers they report results with other datasets or without a full description of all the components of the model. *
+
+------------------------
+
+Reviewer #5: In this paper, the authors present an interpretable classifier able to classify retina images into the different levels of diabetic retinopathy severity with good performance, as well as of explaining its results by assigning a score for every point in the hidden and input spaces, evaluating its contribution to the final classification in a linear way.
+
+(1)     What activation maps did you use? Do you consider leaky ReLU or parametric ReLU?
+
+* ANSWER: We use ReLU. We tested also leaky ReLU, ELU and SeLU with similar results. As performance was the same we used the simplest activation function (clarified in section 4.2.1). *
+
+(2)     Some CNN related papers can help the readers understand your paper better, see Classification of Alzheimer's Disease Based on Eight-Layer Convolutional Neural Network with Leaky Rectified Linear Unit and Max Pooling, and Polarimetric synthetic aperture radar image segmentation by convolutional neural network using graphical processing units.
+
+* ANSWER: We added this paper as a reference in the new paragraph related with medical diagnosis classifiers at the introduction. (see page 4) *
+
+(3)     How many convolutional layers did you consider to use? How do you determine the kernel size and stride size?
+
+* ANSWER: In section 4.2.2 we describe the model in detail. We use 17 layers and 3x3 convolutions with stride 1x1. (see page 21-23) *
+
+(4)     Which pooling technique is better? Max pooling or average pooling?
+
+* ANSWER: We use max-pooling for features and average pooling in the last layer. We tried to use average pooling in every layer with worse results. Max-pooling in last layer gave also worse results. We added references in Introduction section that also clarify this point (page 3).
+
+(5)     What will happen if you not use dropout layer?
+
+ * ANSWER: In our final model we don't use dropout. For this particular application, the models tested using dropout in last layer don't improve results. *
+
+(6)     Figure 11, we seldom count the layers without learnable weights.
+
+ * ANSWER: In Fig. 11, Input, AvgPool and Output are the only blocks without learnable weights. We included this clarification in figure caption and also we changes the colors of the figure for identifying layers with learnable parameters (blue). (see page 23) *
+
+(7)     Did you consider to use transfer learning for your task?
+
+* ANSWER: Transfer learning is also possible. Reference [19] uses transfer learning using an Inception-v3 network pretrained using general purpose Imagenet dataset. The main concern of this solution is that available pre-trained models are based on large networks, with more than 23.8 million of parameters, in this particular case. Based on our funding project objectives, we wanted to design a model small enough to be run in low resources devices, like tablets and phones, that could achieve a good performance, as close as possible to those large ones. Our model has less than 390.000 parameters, two orders of magnitude smaller than the one used in [19] and runs fluently in mobile phones. Furthermore, small models facilitate the activation of the procedures for explainability (with backpropagation) that give a considerable added value to the classification model as the user receives feedback about the reasons why an image is classified into a certain class. We included this explanation also in paper conclusions. *
+
+We would be glad to respond to any further questions and comments that you may have.
+
+Yours Sincerely,
+
+Jordi de la Torre
+Corresponding Author

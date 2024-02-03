@@ -1,0 +1,37 @@
+Dear Editors,
+
+Sincerest thanks for your response and reviewers comments on our manuscript. We have separated our responses to the reviewers’ comments according to several categories in order to achieve an integrated approach.
+
+The main contribution of our paper is the compression of the disentagled important features for the classification into mathematical independent components using ICA to posteriously visualize such independent elements in the input space. We think that it is an interesting way of extracting indepently from the  human knowledge the underlying causes of a disease
+
+1. Summary:
+Just to mention that it has been understood by all the reviewers being R#1 description the one closer to the ideas that we wanted to communicate.
+
+2. Strengths:
+The main idea that we want to emphasize is that our proposal is a way to enrich the information given by explanation models, enhancing the information extracted from deep learning models facilitating diagnostics.
+
+3. Weaknesses:
+
+R#1 asks for clarification about the independence of the components due to the fact that in Fig. 5 they don't seem to be clearly different between each other. As reviewer also states, they are by definition mathematically independent. Fig. 5 are 640x640 resolution images, and it is true that probably it is not the best chosen visualization. We propose to remove it, Fig. 4 show the same information about the three components using a bigger receptive field easy to visualize and to interpret using small size visualizations. In Fig.4 it can be easily identified the difference between the three components (being blue negative values and red positive ones).
+
+R#1 suggests to reduce the information given about Deep Learning and increase the information given about ICA. It is a possibility.
+
+The retraining of last layer network is only used for identification of more important independent causes and visualization of them. Obviuosly for classification purposes the original network is used.
+
+R#2 claims that the work does not include any work about diabetic retinopathy and that some relevant issues have not been mentioned. The idea of our paper is focused on showing a new method for complementing the pixel-wise visualization model with a way that allows the separation of the underlying independent components and help in the results explanations. It is not the purpose of this paper the design of a new diabetic classifier (it is given) or compare it with other types of visualization techniques but to increment the possibilities of existing ones. In any case probably following the suggestion given by R#3 it is possible to include some references to the state of the art of diabetic retinopathy classifiers and saliency maps in "Related Work" section.
+
+4. Suggestions:
+
+R#1 ask for more information about ICA on introduction and less about Deep Learning. R#2 ask for more information specifically about CNNs and R#3 also thinks that the information about Deep Learning is too general. Probably it will be a good idea to increment the information about ICA and be more specific describing CNNs.
+
+Related Work references suggested by R#1 and R#2 can be included and explained in the related work section in order to give a more wide perspective to the visualization techniques available. 
+
+All the minor corrections addressed by R#3 in 6-13 should be addressed.
+
+We look forward to hearing from you regarding our submission. We would be glad to respond to any further questions and comments that you may have.
+
+Yours Sincerely,
+
+Jordi de la Torre
+
+

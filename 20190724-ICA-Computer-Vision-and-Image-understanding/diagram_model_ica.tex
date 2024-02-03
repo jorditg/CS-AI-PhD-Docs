@@ -1,0 +1,29 @@
+\documentclass[crop,tikz]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick, ->, >=stealth]
+
+\begin{document}
+	\begin{tikzpicture}[node distance=4cm]
+	\node (in1) [io] {Image};
+	\node (fe) [process, right of=in1] {\begin{tabular}{c}Feature\\Extraction\end{tabular}};
+	\node (feat) [io, right of=fe] {Features};
+	\node (ica) [process, right of=feat] {\begin{tabular}{c}ICA\\(Offline)\end{tabular}};
+	\node (icacomp) [io, right of=ica] {\begin{tabular}{c}ICA\\Components\end{tabular}};
+	\node (lc) [process, right of=icacomp] {\begin{tabular}{c}Linear\\Classifier\end{tabular}};
+	\node (cl) [io, right of=lc] {Classes};
+	
+	\draw [arrow] (in1) -- (fe);
+	\draw [arrow] (fe) -- (feat);
+	\draw [arrow] (feat) -- (ica);
+	\draw [arrow] (ica) -- (icacomp);
+	\draw [arrow] (icacomp) -- (lc);	
+	\draw [arrow] (lc) -- (cl);
+	\end{tikzpicture}
+\end{document}

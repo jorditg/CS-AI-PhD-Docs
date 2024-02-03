@@ -1,0 +1,27 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\begin{document}
+\pagestyle{empty}
+%
+\tikzstyle{int}=[draw, fill=blue!20, minimum size=2em]
+\tikzstyle{init} = [pin edge={->,thin,black}]
+
+\begin{tikzpicture}[node distance=2.5cm,auto,>=latex']
+    \node [int, pin={[init]above:$S_{k_L}$}] (a) {L};
+    \node (b) [left of=a,node distance=2cm, coordinate] {a};
+    \node [int, pin={[init]above:$S_{k_{L-1}}$}] (c) [right of=a] {L-1};
+    \node [text width=0.5cm] (usw) [right of=c, node distance=2cm]{(...)};
+    \node [int, pin={[init]above:$S_{k_1}$}] (d) [right of=usw] {1}; 
+    \node [coordinate] (end) [right of=d, node distance=2cm]{};
+       
+    \path[->] (b) edge node {$S_L$} (a);
+    \path[->] (a) edge node {$S_{L-1}$} (c);
+    \draw[->] (c) edge node {$S_{L-2}$} (usw) ;
+    \draw[->] (usw) edge node {$S_1$} (d) ;
+    \draw[->] (d) edge node {$S_{Input}$} (end) ;
+    
+\end{tikzpicture}
+
+\end{document}

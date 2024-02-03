@@ -1,0 +1,4 @@
+Results filename: animated_20060412_59717_0200_PP_Rotation.npz
+Image target:
+      t  o                         file
+1137  3  2  20060412_59717_0200_PP.jpeg

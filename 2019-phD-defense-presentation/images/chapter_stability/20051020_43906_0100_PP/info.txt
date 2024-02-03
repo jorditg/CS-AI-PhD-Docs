@@ -1,0 +1,4 @@
+Results filename: animated_20051020_43906_0100_PP_Rotation.npz
+Image target:
+     t  o                         file
+947  3  2  20051020_43906_0100_PP.jpeg

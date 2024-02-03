@@ -1,0 +1,86 @@
+% Chapter Template
+
+\chapter{Introduction} % Main chapter title
+
+\label{Chapter:Introduction} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section{Motivation}
+
+Computer Science is the field of knowledge that deals with the study of computers and computational systems. Its principal areas include artificial intelligence \& machine learning, computer systems \& networks, security, databases, human-machine interaction, computer vision, numerical analysis, programming languages, software engineering, bioinformatics and theory of computing. 
+
+Computer vision is an interdisciplinary sub-field of Computer Science that deals with methods for understanding relevant information present in images. From an engineering perspective, its main purpose is developing methods and algorithms for automatically acquiring, processing, analyzing and understanding images. Typical problems addressed by computer vision include image classification, object detection, segmentation, semantic segmentation and text explanation generation.
+
+Pattern recognition is a sub-field of Computer Vision which purpose is the design of methods for extracting information from images. It uses machine learning techniques for extracting the relevant information. Although its methods can be generally applied to any signal, a significant part of the field is devoted to extract infomation from image data.
+
+Medical Imaging is the term used for describing the set of techniques used for obtaining visual representations of the interior of a body with the objective of being used for clinical analysis and medical intervention. It seeks to reveal internal structures hidden inside the body for detecting possible pathologies, facilitating diagnosis. Such discipline incorporates radiology, magnetic resonance imaging, medical ultrasonography, endoscopy, elastography, tactile imaging, thermography, medical photography and nuclear medicine functional imaging techniques as positron emission tomography (PET) and Single-photon emission computed tomography (SPECT) \citep{bushberg2011essential}. Such techniques have been essential for improving probability of early detection of many diseases and in this way, reducing also the resources required for treating patients, due to the fact that early stages of many diseases require milder treatments.
+
+Diabeted melitus (DM) is a chronic disease that affects nearly 400 million patients worldwide and is expected to increase up to 600 million adults by 2035 \citep{aguiree2013idf}. Spain is expected to have nearly 3 million DM patients by 2030 \citep{shaw2010global}. Patients affected by DM can develop other diseases derived from diabetes. The most serious DM ocular derived disease is Diabetic Retinopathy (DR). DR is a leading disabling chronic disease  and one of the main causes of blindness and visual impairment in developed countries for diabetic patients \citep{fong2004retinopathy}. Studies reported that 90\% of the cases can be prevented through early detection and treatment. Eye screening through retinal image analysis is used by physicians to detect lesions related with this disease. Due to the increasing number of diabetic people, the amount of images to be manually analyzed is becoming unaffordable. Moreover, training new personnel for this type of image-based diagnosis is long, because it requires to acquire expertise by daily practice. Disease detection using non-mydriatic fundus cameras results to be a very cost effective method for DR screening \citep{romero2018clinical}.  
+
+Design of automatic diagnostics systems for Medical Imaging in general and for DR in particular, could help reducing the prevalence of most severe disease cases, increasing the cost effectiveness of diagnostic systems, reducing its associated costs and increasing patients life quality. The motivation of this thesis is the exploration of new and effective methods for the diabetic retinopathy disease detection, classification and lesion detection through automatic analysis of retina fundus images.
+
+Traditionally, pattern recognition automatic systems have been based on the extraction of hand-crafted engineered features or fixed kernels from the image object of study and the use of a trainable classifier on top of them for obtaining the final classification. Using this scheme the problem of the DR detection has been based on hand engineering the features for detection of disease related lesions, ie. microaneurisms, hemorrhages and exhudates in retinal images that maximize the performance of classifiers. This type of approach requires a good understanding of the disease mechanism, requiring a lot of labor time and being very task-specific and thereby not reusable in other classification domains.
+
+In this thesis, we explore a completely different approach consisting on automatic feature learning. We explore the use deep convolutional neural network models for predicting disease classification. %In the way of obtaining the best results from our models, a new loss function for ordinal regression optimization is proposed, presenting different case studies where it is applied, with an increase in the obtained classification indexes. Moreover, a model for interpretation of results reported by the classification model is designed, able to infer lesions present in images only from the labeling of the whole image. A stability test of the model predictor is also presented. Finally, designed model performance is tested in a real world application, using a potentially different population of the Hospital de Reus patients. 
+
+\section{Objectives}
+
+The objectives of this thesis are the creation of a human performance level diabetic retinopathy automatic classifier using Machine Learning techniques based on Deep Learning. The classifier should be able not only of reporting good classification indexes (near or better than human performance) but also to give additional information to the physicians about the important elements that the model took into account to arrive to every particular conclusion.
+
+To reach this final objective, we need to achieve other intermediate goals that are described in the following sections. Such intermediate goals are (1) design a classifier with good balance between performance and required hardware resources, (2) design a method for explaining the results reported by the model and finally (3) design a way to express as concisely as possible the results in order to facilitate the interpretation by human experts.
+%-----------------------------------
+%	SUBSECTION 1
+%-----------------------------------
+\subsection{Design of a DR classifier}
+
+Deep learning classifier is known to be the best available technique for classification in general applications based on natural images recognition. At the beginning of the elaboration of this thesis, deep learning for medical imaging was in its infancy and it was not clear that such models were able to evaluate the small lesions present in images and to infer from them a statistically relevant disease classification. Another challenge at the beginning of the elaboration of this thesis was the reduced number of available resources and the limitation of deep learning software libraries. Although having a big enough public dataset, we did not had enough computation capability for experimenting with big networks. The first attempts were focused on designing different types of networks, with different input sizes, in order to find the correct balance between size of the network and size of the input image, in order to maximize performance. Another challenge was choosing the right minimization function for training the network. As an ordinal regression problem, the evaluation function used for measuring classification performance was different from the traditional multi-class classification loss function, the log-loss. First networks were trained with log-loss. Afterwards we explored the possibility of directly optimizing some ordinal based evaluation function, like quadratic weighted kappa. %There were no research available of using such function as a loss function for training neural networks and we used a complete study with different ordinal regression problems comparing the performance of the final model training it with QWK-loss and log-loss proving that for ordinal regression problems up to a 5-10\% additional performance can be achieved directly optimizing QWK. Nowadays, there are plenty of libraries mature enough to design easily very complex models. That was not the case at the beginning of this thesis elaboration. 
+
+%-----------------------------------
+%	SUBSECTION 2
+%-----------------------------------
+
+\subsection{Design of a system for results interpretation}
+
+Deep learning classifiers use to work as black box intuition machines. When trained in the right way, they are able to have high statistical confidence but they do not give any clue of the reasons behind each decision. In medical imaging, it is critical to be able to explain the reasons behind a conclusion, because part of the curing process can be related with some kind of treatment over the disease causal elements. So, our goal for the case of DR disease was helping in the process of lesion location, facilitating an eventual treatment of surgery over local elements.
+%----------------------------------------------------------------------------------------
+%	SECTION 2
+%----------------------------------------------------------------------------------------
+
+\subsection{Design a model for facilitating the understanding of explanations}
+
+Machines treat the information in a way different than humans. Computers can handle efficiently multi-dimensional representations. Humans interpret data better when presented in reduced dimensional spaces (2D if possible). The last objective of the thesis is related with the design of techniques for compression representation.
+
+\section{Contributions}
+
+The main contributions of this thesis are:
+
+\begin{enumerate}
+	\item Design of automatic classifiers based on deep neural networks able to reach ophthalmologist performance level.
+	
+	\fullcite{jdelatorre2016}
+	
+	\item Study of the usage of Quadratic Weighted Kappa index as a Deep Learning Loss Function for the optimization of ordinal regression problems.
+	
+	\fullcite{delatorre2017} Impact Factor: 1.952 (Q2)
+	
+	\item Design of a generalized model for the interpretation of results reported by deep learning classifiers.
+	
+	\fullcite{de2017deep} Accepted for publication in Neurocomputing. Impact Factor: 3.241 (Q1)
+	
+	\item Design of a method for compressing feature space internal representations of deep learning models.
+	
+	\fullcite{delatorre_ica_2018}
+	
+	\item Study of the feature space manifold stability of the designed diabetic retinopathy classifiers.
+	
+	\item Application of designed classifiers into a real use case in Hospital de Reus. A software has been implemented for DR classification and lesion identification. Registered in Benelux Office for Intellectual Property. Reference number 109999.
+\end{enumerate}
+
+
+\section{Thesis organization}
+
+This thesis is organized as follows: In chapter \ref{Chapter:Introduction} a brief description of the work motivation is presented. Main contributions done during thesis elaboration are described and journal publications are cited. In chapter \ref{Chapter:Background} scope of the work is briefly explained, defining the challenges and tools \& techniques used for solving them. The following chapters are organized in three differentiated parts: the first part groups chapters related with \emph{Classification} (\ref{Chapter:Classification}, \ref{Chapter:QWK_loss}, \ref{Chapter:Ordinal_Regression} and \ref{Chapter:Stability}), the second part groups chapters related with \emph{Interpretation} (chapters \ref{Chapter:Interpretation} and \ref{Chapter:ICA}) and finally, the third part groups \emph{Experimental Applications and Conclusions} (chapters  \ref{Chapter:Inference} and \ref{Chapter:Conclusions}). In chapter \ref{Chapter:Classification} first designed classifiers are presented followed by some ensembling techniques used for improving results achieved, near human expert performance. In chapter \ref{Chapter:QWK_loss} a new loss function for ordinal regression optimization is presented accompanied with experimental studies validating the increase of performance achieved against conventional optimization losses. In chapter \ref{Chapter:Ordinal_Regression} an improved version of first classifiers is presented, using the new derived loss function and other changes, achieving ophthalmologist level performance. In chapter \ref{Chapter:Stability} a feature-space manifold stability study is also presented for evaluation of the stability of the model internal representation to changes in input structure. In chapter \ref{Chapter:Interpretation} a general interpretation model for deep learning classifiers is presented and applied to the specific case of our diabetic retinopathy classifiers achieving an excellent performance in lesion detection. In chapter \ref{Chapter:ICA} a system for feature-space compression is presented. In chapter \ref{Chapter:Inference} a research results case study application is presented, applying the classifiers for prediction of \emph{Hospital Universitari Sant Joan de Reus} population. A set of studies for evaluation of covariate shift of training and new test set population are also presented. Finally, in chapter \ref{Chapter:Conclusions} thesis conclusions and future work directions are described.
+

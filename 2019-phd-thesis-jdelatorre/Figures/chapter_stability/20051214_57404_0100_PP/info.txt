@@ -1,0 +1,5 @@
+Operation: Rotation
+Results filename: animated_20051214_57404_0100_PP_Rotation.npz
+Image target:
+     t  o                         file
+815  2  2  20051214_57404_0100_PP.jpeg

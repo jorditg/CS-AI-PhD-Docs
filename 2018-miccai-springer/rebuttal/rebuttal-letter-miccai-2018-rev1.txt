@@ -1,0 +1,34 @@
+Dear Editors,
+
+Sincerest thanks for your response and reviewers comments on our manuscript. We have separated our responses to the reviewers’ comments according to several categories in order to achieve an integrated approach.
+
+1. Summary & Strenghts:
+Just to mention that the main idea of paper has been understood by reviewers being R#1 description the one closer to the ideas that we wanted to communicate. The main contribution of our paper is the compression of the disentagled classification features into a low dimensional mathematical independent components using ICA with the objective of improving the explainability of the results using pixel-wise explanation model. 
+
+3. Weaknesses & Suggestions:
+We group the considerations of all reviewers grouped by mentioned paper sections:
+
+Introduction:
+R#1 ask for more information about ICA on introduction and less about Deep Learning. R#2 ask for more information specifically about CNNs and R#3 also thinks that the information about Deep Learning is too general. Probably it will be a good idea to increment the information about ICA and be more specific describing CNNs.
+
+Related Work:
+The objective of our paper is focused on showing a new method for complementing the pixel-wise visualization model with a way that allows the separation of the underlying independent components and help in the results explanations. R#2 claims that the work does not include any work about diabetic retinopathy and that some relevant issues have not been mentioned. It is not the purpose of our paper the design of a new state of the art diabetic classifier (we use one with a good performance, not the best) or compare it with other types of visualization techniques but to increment the possibilities of one of them (pixel-wise). In any case, following the suggestion given by R#3 we agree that it is a good idea to broaden the sprectre including some references to the state of the art of diabetic retinopathy classifiers and and other visualization techniques like saliency maps in order to give a more general overview. Related Work references suggested by R#1 and R#2 can be included and explained in the related work section in order to give a more wide perspective to the available visualization techniques.
+
+Methods:
+R#1 asks for clarification about the independence of the components due to the fact that in Fig. 5 they don't seem to be clearly different between each other. As reviewer also states, they are by definition mathematically independent. Fig. 5 are 640x640 resolution images, and it is true that probably it is not the best chosen visualization. We propose to remove it, Fig. 4 show the same information about the three components using a bigger receptive field easy to visualize and to interpret using small size visualizations. In Fig.4 it can be easily identified the difference between the three components (being blue negative values and red positive ones).
+
+R#1 claims that for classification purposes, the original model is better due to its higher performance and asks for clarification of the retraining. Retraining is done only in last layer for checking the performance obtained using different number of independent components and finding the optimal number of them. Obviously for classification purposes the original model is used. We propose the use of ICA version in the visualization phase due to its ability to differentiate the mathematically independent causes of the disease, enhancing the information extracted from deep learning models and facilitating diagnostics.
+
+Other Suggestions:
+All the minor corrections addressed by R#3 in 6-13 should be addressed.
+R#1 ask for a definition of QWK. We agree that a reference is missing. We can add it.
+
+Just as last consideration, the limited paper size makes difficult to be extensive in all the required explanations.
+
+We look forward to hearing from you regarding our submission. We would be glad to respond to any further questions and comments that you may have.
+
+Yours Sincerely,
+
+Jordi de la Torre
+
+

@@ -1,0 +1,545 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage{pdfpages} % enables add pdf pages
+
+%\usepackage{draftwatermark} % DRAFT MARK
+%\SetWatermarkLightness{0.8}
+%\SetWatermarkScale{1}
+
+\usepackage{comment} % comment large parts of latex using \iffalse \fi
+
+\usepackage{enumitem} % \enumerate with \Alph
+
+\usepackage{siunitx} % for using \ang{30} for 30º
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{mathpazo} % Use the Palatino font by default
+
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\addbibresource{retinopathy.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+
+% My usepackages
+%%% Packages %%%
+\usepackage{graphicx}
+\usepackage{epsfig}
+%\usepackage{subfigure}
+\usepackage{caption} % subfigures
+\usepackage[utf8]{inputenc}
+
+% Needed for some foreign characters
+\usepackage[T1]{fontenc}
+
+\usepackage{smartdiagram}
+\usepackage{pgf-pie}
+
+%\newcommand{\degree}{\ensuremath{^{\circ}}\xspace} % adds degree sign 
+% forced line break inside a tabular cell
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+% use it for example as \specialcell[t]{Foo\\bar} or \specialcell{Foo\\bar}
+%%%%%%%%%%%%%%%
+\usepackage{rotating} % rotate elements in LaTeX
+\usepackage{booktabs} % table formatting
+\usepackage{wrapfig} % wrapping text around figures
+\usepackage{caption} % subfigures
+\usepackage{subcaption} % subfigures
+\usepackage{makecell} % \thead in tables
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb} % mathematical symbols
+\usepackage{bm} % bold mode \bm
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{amsmath}
+%\usepackage{subfigure}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{booktabs}
+% This allows us to cite chapters by name, which was useful for making the
+% acknowledgements page
+\usepackage{nameref}
+% Make sure there is a space between the subsection number and subsection title
+% in the table of contents.
+% If we do not do this we end up with 2 digit subsection numbers colliding with
+% the title.
+% See https://tex.stackexchange.com/questions/7853/toc-text-numbers-alignment/7856#7856?newreg=d2632892dd0345f388619f12fa794b11
+\usepackage[tocindentauto]{tocstyle}
+\usetocstyle{standard}
+
+\usepackage{bm}
+
+
+\usepackage{float}
+\newcommand{\boldindex}[1]{\textbf{\hyperpage{#1}}}
+\usepackage{makeidx}\makeindex
+% Make bibliography and index appear in table of contents
+\usepackage[nottoc]{tocbibind}
+% Using the caption package allows us to support captions that contain "itemize" environments.
+% The font=small option makes the text of captions smaller than the main text.
+\usepackage[font=small]{caption}
+
+
+\usepackage[chapter]{algorithm}
+\usepackage{algorithmic}
+% Include chapter number in algorithm number
+\renewcommand{\thealgorithm}{\arabic{chapter}.\arabic{algorithm}}
+
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition} % definition
+\newtheorem{definition}{Definition}%[section]
+\newtheorem{proposition}{Proposition}%[section]
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\me}{\mathrm{e}} % exponential e
+
+% Define the P table cell environment
+% It is the same as p, but centers the text horizontally
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+% Rebuild the book document class's headers from scratch, but with different font size
+% (this is for MIT Press style)
+% Source: http://texblog.org/2012/10/09/changing-the-font-size-in-fancyhdr/
+\newcommand{\changefont}{% 1st arg to fontsize is font size. 2nd arg is the baseline skip. both in points.
+	\fontsize{9}{11}\selectfont
+}
+
+\input{math_commands.tex}
+
+% End my usepackages
+
+
+%----------------------------------------------------------------------------------------
+%   MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+    paper=b5paper,%a4paper % Change to letterpaper for US letter
+    inner=16mm, % Inner margin
+    outer=24mm, % Outer margin
+    bindingoffset=10mm, % Binding offset
+    top=20mm, % Top margin
+    bottom=28mm, % Bottom margin
+    %showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%   THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{Diabetic Retinopathy Classification and Interpretation using Deep Learning Techniques} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Dra. A\"ida \textsc{Valls Mateu} and \\Dr. Dom\`enec Savi \textsc{Puig Valls}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Doctor of Philosophy} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Jordi \textsc{de la Torre Gallart}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{Machine Learning and Artificial Intelligence} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{deep learning, classification, interpretation, supervised learning, feature compression, medical imaging, diabetic retinopathy} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{Universitat Rovira i Virgili} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{Department d'Enginyeria Inform\`atica i Matem\`atiques} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{ITAKA} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{Escola T\`ecnica Superior d'Enginyeria} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+% Allow align environments to cross page boundaries.
+% If we do not do this, we get weird gaps of several inches of white space
+% before or after some long align environments.
+\allowdisplaybreaks
+
+\begin{document}
+
+%%% REQUIRED BY NOTATION CHAPTER
+\setlength{\parskip}{0.25 \baselineskip}
+\newlength{\figwidth}
+\setlength{\figwidth}{26pc}
+% Spacing between notation sections
+\newlength{\notationgap}
+\setlength{\notationgap}{1pc}
+%%% REQUIRED BY NOTATION CHAPTER
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+
+\includepdf[pages=-]{B5_coberta_CDEgen2017.pdf}
+
+%----------------------------------------------------------------------------------------
+%   TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+	\begin{center}
+		
+		%\vspace*{.06\textheight}
+		%\HRule \\[0.4cm] % Horizontal line
+		{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+		%\HRule \\[1.5cm] % Horizontal line
+		
+		\vspace*{.06\textheight}
+		
+		\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+						
+		\vspace*{.06\textheight}		
+
+		%\begin{minipage}[t]{0.4\textwidth}
+		%	\begin{flushleft} \large
+		%		\emph{Author:}\\
+		%		\href{http://jorditg.github.io}{\authorname} % Author name - remove the \href bracket to remove the link
+		%	\end{flushleft}
+		%\end{minipage}
+		%\begin{minipage}[t]{0.4\textwidth}
+		%	\begin{flushright} \large
+		%		\emph{Advisors:} \\
+				%\href{http://www.jamessmith.com}
+		%		{\supname} % Supervisor name - remove the \href bracket to remove the link  
+		%	\end{flushright}
+		%\end{minipage}\\[3cm]
+		
+		\emph{Author:}\\
+		\authorname \\
+		
+		\vspace*{.06\textheight}
+		
+		\emph{Supervisors:}\\
+		\supname \\
+
+		\vspace*{.06\textheight}
+				
+		%\vfill
+		
+		\large \textit{\deptname}\\[0.3cm] % University requirement text
+		%\textit{in the}\\[0.4cm]
+		\vspace*{.04\textheight}
+				
+		\includegraphics[height=5.0\baselineskip]{Figures/urv/urv-centrat-color} % University/department logo - uncomment to place it
+		%{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+		
+		%\vfill
+		Tarragona\\
+		{\large \the\year}\\[4cm] % Date
+		
+		
+		\vfill
+	\end{center}
+\end{titlepage}
+
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\includegraphics[height=2.0\baselineskip]{Figures/urv/urv-bandera-color}\\
+\textbf{Departament d'Enginyeria Inform\`atica}\\
+\textbf{i Matem\`atiques}\\
+\\
+\\
+Av. Pa\"isos Catalans, 27\\
+43007 Tarragona\\
+Tel. +34 977 55 95 95\\
+Fax. +34 977 55 95 97\\
+\\
+\\
+\\
+We STATE that the present study, entitled \enquote{\ttitle}, presented by \authorname, for the award of the degree of Doctor, has been carried out under our supervision at the \deptname.\\
+\\
+\\
+\\
+Tarragona, November 2018.\\
+\\
+\\
+\\
+\\
+Doctoral Thesis Supervisors,\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+
+Dra. A\"ida Valls Mateu \hspace{40pt} Dr. Dom\`enec Savi Puig Valls
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%   DEDICATION
+%----------------------------------------------------------------------------------------
+
+%\dedicatory{For/Dedicated to/To my\ldots} 
+\dedicatory{To my wife Ana,\\ my children Pol \& Alba,\\ my parents Jos\'e \& Tere and\\my siblings Sonia, Xavi \& Sergi.} 
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%   QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace*{0.1\textheight}
+
+\noindent\enquote{\itshape Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.}
+\bigbreak
+
+\hfill Richard Feynman
+
+\vspace*{0.1\textheight}
+
+\noindent\enquote{\itshape El amor al saber, la curiosidad, el asombro, es lo que puede sostener a cualquier ser humano.}\bigbreak
+	
+\hfill Antonio Escohotado 
+	
+\vspace*{0.1\textheight}
+
+\noindent\enquote{\itshape The process of creativity and genius are inherent in human consciousness.}\bigbreak 
+
+\hfill David R. Hawkins
+
+\vspace*{0.1\textheight}
+
+\noindent\enquote{\itshape Nada para m\'i que no sea para los otros.}\bigbreak
+
+\hfill Alejandro Jodorowsky
+
+
+
+%----------------------------------------------------------------------------------------
+%   ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+
+This work is supported by the URV grant 2015PFR-URV-B2-60 and the Spanish research projects PI15/01150 and PI12/01535 (Instituto Salud Carlos III). 
+
+I would like to express my gratitude to my supervisors Dra. A\"ida Valls and Dr. Dom\`enec Puig for their useful guidance, insightful comments, and considerable encouragement to complete this thesis. 
+
+I would also like to express my gratitude to Dr. Pere Romero-Aroca and his team of collaborators of the Hospital Universitari Sant Joan de Reus, for their trust, passion and for providing the medical interpretation assessment required in this thesis.
+
+I would also like to thank to all the Artificial Intelligence Community, specially to Geoffrey Hinton, Yann LeCun, Yoshua Bengio and Andrew Ng, an example to follow for their proved generosity sharing their knowledge in benefit of all Humanity. 
+
+My gratitude also for Facebook Inc. and Google Inc., technological leader companies in favor of public research, collaborating, designing and publicly sharing freely important part of their research and their machine learning tools: PyTorch and Tensorflow, helping to speed up immensely the creation of greatly beneficial products for all of us. 
+
+My gratitude for all the Open Source Community. Culture of collaboration is key for our success as Civilization. 
+
+Without all of them this thesis would not be possible.
+
+\end{acknowledgements}
+
+
+%----------------------------------------------------------------------------------------
+%   LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+%----------------------------------------------------------------------------------------
+%   ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+	
+	\textbf{ML} & \textbf{M}achine \textbf{L}earning\\
+	\textbf{DL} & \textbf{D}eep \textbf{L}earning\\
+	\textbf{CNN} & \textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork\\
+	\textbf{DCNN} & \textbf{D}eep \textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork\\
+	\textbf{BS} & \textbf{B}atch \textbf{S}ize\\
+	\textbf{RF} & \textbf{R}eceptive \textbf{F}ield\\
+	\textbf{PCA} & \textbf{P}rincipal \textbf{C}omponents \textbf{A}nalysis\\
+	\textbf{ICA} & \textbf{I}ndependent \textbf{C}omponents \textbf{A}nalysis\\
+	\textbf{IC} & \textbf{I}ndependent \textbf{C}omponent\\
+	\\
+	\textbf{DM} & \textbf{D}iabetes \textbf{M}ellitus\\
+	\textbf{DR} & \textbf{D}iabetic \textbf{R}etinopathy\\
+	\textbf{DME} & \textbf{D}iabetic \textbf{M}acular \textbf{E}dema\\
+	\textbf{NPDR} & \textbf{N}on-\textbf{P}roliferative \textbf{D}iabetic \textbf{R}etinopathy\\
+	\textbf{PDR} & \textbf{P}roliferative \textbf{D}iabetic \textbf{R}etinopathy\\
+	\\
+	\textbf{QWK} & \textbf{Q}uadratic \textbf{W}eighted \textbf{K}appa\\
+	\textbf{CM} & \textbf{C}onfusion \textbf{M}atrix\\
+	\textbf{TP} & \textbf{T}rue \textbf{P}ositive\\
+	\textbf{TN} & \textbf{T}rue \textbf{N}egative\\
+	\textbf{FP} & \textbf{F}alse \textbf{P}ositive\\
+	\textbf{FN} & \textbf{F}alse \textbf{N}egative\\
+	\textbf{ACC} & \textbf{A}ccuracy\\
+	\textbf{PPV} & \textbf{P}ositive \textbf{P}redictive \textbf{V}alue\\
+	\textbf{NPV} & \textbf{N}egative \textbf{P}redictive \textbf{V}alue\\
+	\textbf{FPR} & \textbf{F}alse \textbf{P}ositive \textbf{R}ate\\
+	\textbf{FNR} & \textbf{F}alse \textbf{N}egative \textbf{R}ate\\
+	\textbf{FDR} & \textbf{F}alse \textbf{D}iscovery \textbf{R}ate\\
+	\textbf{FOR} & \textbf{F}alse \textbf{O}mission \textbf{R}ate\\
+	%\textbf{MCC} & \textbf{M}atthews \textbf{C}orrelation \textbf{C}oefficient\\
+	
+\end{abbreviations}
+
+
+%----------------------------------------------------------------------------------------
+%   ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+	\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+	
+	Diabetic Retinopathy (DR) is a leading disabling chronic disease  and  one of the main causes of blindness and visual impairment in developed countries for diabetic patients. Studies reported that 90\% of the cases can be prevented through early detection and treatment. Eye screening through retinal images is used by physicians to detect the lesions related with this disease. Due to the increasing number of diabetic people, the amount of images to be manually analyzed is becoming unaffordable. Moreover, training new personnel for this type of image-based diagnosis is long, because it requires to acquire expertise by daily practice. 
+	
+	In this thesis, we explore different novel methods for the automatic diabetic retinopathy disease grade classification using retina fundus images. For this purpose, we explore methods based in automatic feature extraction and classification, based on deep neural networks. 
+	
+	Furthermore, as results reported by these models are difficult to interpret, we design a new method for results interpretation. The model is designed in a modular manner in order to generalize its possible application to other networks and classification domains. We experimentally demonstrate that our interpretation model is able to detect retina lesions in the image solely from the classification information.
+	
+	Additionally, we propose a method for compressing model feature-space information. The method is based on a independent component analysis over the disentangled feature space information generated by the model for each image and serves also for identifying the mathematically independent elements causing the disease. Using our previously mentioned interpretation method is also possible to visualize such components on the image.
+	
+	Finally, we present an experimental application of our best model for classifying retina images of a different population, concretely from the Hospital de Reus. We study the possible presence of co-variate shift and present the results obtained from such a new population. 
+	
+	The methods proposed, achieve ophthalmologist performance level and are able to identify with great detail lesions present on images, inferred only from image classification information.
+\end{abstract}
+
+
+%----------------------------------------------------------------------------------------
+%   PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+%\begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+
+% The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+
+%Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
+%Constant Name & $Symbol$ & $Constant Value$ with units\\
+
+%\end{constants}
+
+%----------------------------------------------------------------------------------------
+%   SYMBOLS
+%----------------------------------------------------------------------------------------
+
+%\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+
+%$a$ & distance & \si{\meter} \\
+%$P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+%Symbol & Name & Unit \\
+
+%\addlinespace % Gap to separate the Roman symbols from the Greek
+
+%$\omega$ & angular frequency & \si{\radian} \\
+
+%\end{symbols}
+
+
+%----------------------------------------------------------------------------------------
+%   THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+%\include{Chapters/Chapter0_Notation}
+\include{Chapters/Chapter1_Introduction}
+\include{Chapters/Chapter2_Background} 
+\part{Classification}
+\include{Chapters/Chapter3_Classification}
+\include{Chapters/Chapter4_Loss_Ordinal_Regression}
+\include{Chapters/Chapter5_Ordinal_Regression}
+\include{Chapters/Chapter9_Stability} 
+\part{Interpretation}
+\include{Chapters/Chapter6_Interpretation} 
+\include{Chapters/Chapter7_Causes_Identification}
+\part{Experimental Application and Conclusions} 
+\include{Chapters/Chapter8_Inference}
+\include{Chapters/Chapter10_Conclusions} 
+
+%----------------------------------------------------------------------------------------
+%   THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+%\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+%\include{Appendices/AppendixA}
+%\include{Appendices/AppendixB}
+%\include{Appendices/AppendixC}
+
+%----------------------------------------------------------------------------------------
+%   BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc]
+
+%----------------------------------------------------------------------------------------
+
+\includepdf[pages=-]{B5_contra.pdf}
+
+
+\end{document}  
+
+   

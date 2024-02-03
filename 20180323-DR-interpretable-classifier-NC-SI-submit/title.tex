@@ -1,0 +1,44 @@
+\documentclass[review]{elsarticle}
+
+\usepackage{lineno,hyperref}
+\modulolinenumbers[5]
+
+\journal{Journal of Neurocomputing}
+%% APA style
+\bibliographystyle{model5-names}\biboptions{authoryear}
+
+\usepackage{afterpage}
+
+\begin{document}
+
+
+\begin{frontmatter}
+	
+	\title{A Deep Learning Interpretable Classifier for Diabetic Retinopathy Disease Grading}
+	%\tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
+	
+	\author[rvt]{Jordi de la Torre\corref{cor1}}
+	\ead{jordi.delatorre@gmail.com}
+	\author[rvt]{Aida Valls}
+	\ead{aida.valls@urv.cat}
+	\author[rvt]{Domenec Puig}
+	\ead{domenec.puig@urv.cat}
+	
+	\cortext[cor1]{Corresponding author}
+	
+	\address[rvt]{Departament d'Enginyeria Inform\`atica i Matem\`atiques.\\Escola T\`ecnica Superior d'Enginyeria.\\Universitat Rovira i Virgili\\Avinguda Paisos Catalans, 26. E-43007\\
+		Tarragona, Spain}
+	
+	\date{Mar 22, 2018}
+	
+	\begin{abstract}
+		Deep neural network models have been proven to be very successful in image classification tasks, also for medical diagnosis. The main weak point is its lack of interpretable explanations about the reported results, although they are able to give results with high statistical confidence. The vast amount of parameters of these models make difficult to infer a rationale interpretation from them. In this paper we present an interpretable classifier able to classify retina images into the different levels of diabetic retinopathy severity with good performance, as well as of explaining its results by assigning a score for every point in the hidden and input spaces, evaluating its contribution to the final classification in a linear way. The generated visual maps can be easily interpreted by an ophthalmologist in order to find the lesions present in the retina that are causing the disease.
+	\end{abstract}
+	
+	\begin{keyword}
+		deep learning\sep classification\sep explanations\sep diabetic retinopathy \sep model interpretation
+		\MSC[2010] 68T10
+	\end{keyword}
+	
+\end{frontmatter}
+\end{document}

@@ -1,0 +1,16 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+%\usepackage[top=3cm,left=3cm,right=3cm,bottom=3cm]{geometry}
+% Scriptsize axis style.
+\pgfplotsset{every axis/.append style={tick label style={/pgf/number format/fixed},font=\scriptsize,ylabel near ticks,xlabel near ticks,grid=major}}
+
+\begin{document}
+\begin{tikzpicture}
+		\begin{axis}[width=5.5cm,height=4cm,ymin=-0.1,ymax=1.1,xmin=-5,xmax=5]
+\addplot[blue,smooth] {1/(1+exp(-x))};
+
+%\addlegendentry{Softsign}
+\end{axis}
+\end{tikzpicture}
+\end{document}

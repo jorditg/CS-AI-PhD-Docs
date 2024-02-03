@@ -1,0 +1,44 @@
+\documentclass[review]{elsarticle}
+
+\usepackage{lineno,hyperref}
+\modulolinenumbers[5]
+
+\journal{Journal of Neurocomputing}
+%% APA style
+\bibliographystyle{model5-names}\biboptions{authoryear}
+
+\usepackage{afterpage}
+
+\begin{document}
+
+
+\begin{frontmatter}
+	
+	\title{A Deep Learning Interpretable Classifier for Diabetic Retinopathy Disease Grading}
+	%\tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
+	
+	\author[rvt]{Jordi de la Torre\corref{cor1}}
+	\ead{jordi.delatorre@gmail.com}
+	\author[rvt]{Aida Valls}
+	\ead{aida.valls@urv.cat}
+	\author[rvt]{Domenec Puig}
+	\ead{domenec.puig@urv.cat}
+	
+	\cortext[cor1]{Corresponding author}
+	
+	\address[rvt]{Departament d'Enginyeria Inform\`atica i Matem\`atiques.\\Escola T\`ecnica Superior d'Enginyeria.\\Universitat Rovira i Virgili\\Avinguda Paisos Catalans, 26. E-43007\\
+		Tarragona, Spain}
+	
+	\date{Mar 22, 2018}
+	
+	\begin{abstract}
+In this paper we present a diabetic retinopathy deep learning interpretable classifier. On one hand, it classifies retina images into different levels of severity with good performance. On the other hand, this classifier is able of explaining the classification results by assigning a score for each point in the hidden and input spaces. These scores indicate the pixel contribution to the final classification. To obtain these scores, we propose a new pixel-wise score propagation model that divides the observed output score into two components. With this method, the generated visual maps can be easily interpreted by an ophthalmologist in order to find the underlying statistical regularities that help to the diagnosis of this eye disease.
+	\end{abstract}
+	
+	\begin{keyword}
+		deep learning\sep classification\sep explanations\sep diabetic retinopathy \sep model interpretation
+		\MSC[2010] 68T10
+	\end{keyword}
+	
+\end{frontmatter}
+\end{document}

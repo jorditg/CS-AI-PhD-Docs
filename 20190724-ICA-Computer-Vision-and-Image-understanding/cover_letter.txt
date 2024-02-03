@@ -1,0 +1,24 @@
+September 2018, 21st
+Editorial Department of Computer Vision and Image Understanding
+
+Dear Editor,
+
+I am submitting a manuscript for consideration of publication in Computer Vision and Image Understanding Journal. The manuscript is entitled “Identification and Visualization of the Underlying Independent Causes of the Diagnostic of Diabetic Retinopathy made by a Deep Learning Classifier”.
+
+The manuscript has not been published elsewhere and that it has not been submitted simultaneously for publication elsewhere. We also have no conflicts of interest to disclose.
+
+In this manuscript, we show a procedure for extracting and visualizing the mathematically independent components, arising from a feature extraction taken from a deep learning model, that explain diabetic retinopathy disease grading.
+
+If you feel that the manuscript is appropriate for your journal, we would appreciate its consideration for review.
+
+Thank you very much for your consideration.
+
+Yours Sincerely,
+Jordi de la Torre
+PhD Student
+Departament d'Enginyeria Informatica i Matematiques.
+Escola Tecnica Superior d'Enginyeria.
+Universitat Rovira i Virgili
+Avinguda Paisos Catalans, 26. E-43007
+Tarragona, Spain
+

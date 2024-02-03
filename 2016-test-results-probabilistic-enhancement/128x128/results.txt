@@ -1,0 +1,22 @@
+-- ALL AVERAGE EVALUATIONS --	
+ConfusionMatrix:
+[[   27006    8618    2294    1191     424]   68.313% 	[class: 0]
+ [    2087    1188     269     188      30]   31.579% 	[class: 1]
+ [    2326    1669    2305    1399     162]   29.322% 	[class: 2]
+ [      67     120     313     645      69]   53.130% 	[class: 3]
+ [      86     100     249     298     473]]  39.221% 	[class: 4]
+ + average row correct: 44.312835335732% 
+ + average rowUcol correct (VOC measure): 26.11893132329% 
+ + global correct: 59.013364192922%
+==> kappa = 0.48821103442436	
+-- ALL LOG AVERAGE EVALUATIONS --	
+ConfusionMatrix:
+[[   39533       0       0       0       0]   100.000% 	[class: 0]
+ [    3762       0       0       0       0]   0.000% 	[class: 1]
+ [    7861       0       0       0       0]   0.000% 	[class: 2]
+ [    1214       0       0       0       0]   0.000% 	[class: 3]
+ [    1206       0       0       0       0]]  0.000% 	[class: 4]
+ + average row correct: 20% 
+ + average rowUcol correct (VOC measure): 14.757727384567% 
+ + global correct: 73.788636703001%
+==> kappa = 0	

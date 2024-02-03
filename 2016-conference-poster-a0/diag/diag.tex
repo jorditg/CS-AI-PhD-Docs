@@ -1,0 +1,50 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{scalefnt}
+\def\trainingset{(0:-2.5cm) circle (1.31cm)}
+\def\testset{(0:2.5cm) circle (2.0cm)}
+\def\C0TR{(-0.4cm:-2.8cm) circle (0.7cm)}
+%\def\isomorphism{(180:2.5cm) ellipse (2.0cm and 3.0cm)}
+%\def\endomorphism{(90:2.0cm) ellipse (3.0cm and 1.5cm)}
+\begin{document}
+	\begin{tikzpicture}
+	\begin{scope}[fill opacity=0.1]
+	\fill[magenta] \trainingset;
+	\end{scope}
+    \draw \trainingset;
+
+	\begin{scope}[fill opacity=0.1]
+	\fill[magenta] \testset;
+	\end{scope}
+    \draw \testset;
+		
+	\begin{scope}[fill opacity=0.5]
+	\fill[cyan] \C0TR;
+	\end{scope}
+	\draw \C0TR ;
+	
+%	\begin{scope}[fill opacity=0.5]
+%	\fill[orange] \isomorphism;
+%	\end{scope}
+	
+%	\draw \homomorphism;
+%	\draw \isomorphism;
+%	\draw \endomorphism;
+	
+	{
+		\scalefont{2.0}
+		\node[text=black] at ( 1.8,-2) {Homomorphismen};
+	}
+	
+	{
+		\scalefont{1.6}
+		\node[text=black] at (-2.5, 0) {Isomorphismen};
+	}
+	
+	{
+		\scalefont{1.4}
+		\node[text=black] at (   1, 2) {Endomorphismen};
+	}
+	\node[align=left] at (  -2, 2) {Auto-\\morphismen};
+	\end{tikzpicture}
+\end{document}

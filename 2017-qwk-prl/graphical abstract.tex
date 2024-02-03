@@ -1,0 +1,97 @@
+%% This is file `prletters-template.tex',
+%% 
+%% Copyright 2013 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+%%
+%% $Id: prletters-template-with-authorship.tex 69 2013-07-15 10:15:25Z rishi $
+%%
+%% This template has no review option
+%% 
+%% Use the options `twocolumn,final' to obtain the final layout
+\documentclass[times,twocolumn,final,authoryear]{elsarticle}
+
+%% Stylefile to load PR Letters template
+\usepackage{prletters}
+\usepackage{framed,multirow}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{latexsym}
+
+% Following three lines are needed for this document.
+% If you are not loading colors or url, then these are
+% not required.
+\usepackage{url}
+\usepackage{xcolor}
+\definecolor{newcolor}{rgb}{.8,.349,.1}
+
+%%%%%%%%%%%%%%%
+% jdelatorre added header
+\usepackage{tikz}
+\usepackage{blindtext, graphicx}
+\usepackage{smartdiagram}
+\newcommand{\degree}{\ensuremath{^{\circ}}\xspace} % adds degree sign 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % adds capability to < sign
+\usepackage{mathptmx}
+\usepackage{amsmath}
+
+% forced line break inside a tabular cell
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+% use it for example as \specialcell[t]{Foo\\bar} or \specialcell{Foo\\bar}
+%%%%%%%%%%%%%%%
+
+\journal{Pattern Recognition Letters}
+
+\begin{document}
+
+\clearpage
+\thispagestyle{empty}
+\ifpreprint
+  \vspace*{-1pc}
+\fi
+
+\begin{table*}[!th]
+\ifpreprint\else\vspace*{-5pc}\fi
+
+\section*{Graphical Abstract (Optional)}
+To create your abstract, please type over the instructions in the
+template box below.  Fonts or abstract dimensions should not be changed
+or altered. 
+
+\vskip1pc
+\fbox{
+\begin{tabular}{p{.4\textwidth}p{.5\textwidth}}
+\bf Weighted kappa loss function for multi-class classification of ordinal data in deep learning  \\
+Jordi de la Torre, Domenec Puig, Aida Valls
+
+\includegraphics[width=.3\textwidth]{top-elslogo-fm1.pdf}
+& 
+Weighted Kappa is a index of reference used in many diagnosis systems to compare the agreement between different raters. This index can be also used to evaluate the performance of automatic classification methods against the gold standard given by an expert (or from a consensus of an expert group). On the other hand, in the last years, deep learning has achieved a great importance as a new machine learning method. The usual loss function used in deep learning for multi-class classification is the logarithmic loss. In this paper we explore the direct use of a weighted kappa loss function for multi-class classification of ordinal data, also known as ordinal regression. Three classification problems are solved in the paper using these two loss functions. Results confirm that better classification is made when the model is constructed with the optimization of kappa instead of logarithmic loss.
+%}\\
+\end{tabular}
+}
+
+\end{table*}
+
+
+\end{document}
+
+%%

@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\begin{document}
+\pagestyle{empty}
+
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+    
+\begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [block] (input) {Raw Image Balanced Random Selection};
+    \node [block, below of=input] (rot) {Random Rotation};
+    \node [block, below of=rot] (crop) {Crop center};
+    \node [block, below of=crop] (corr) {Random Brightness Contrast};
+    \node [block, below of=corr] (norm) {Normalize RGB Channels $\mu=0$ $\sigma=1$};
+    \node [block, below of=norm] (model) {Deep Learning Model};
+    \node [block, left of=model, node distance=3cm] (update) {SGD Parameters Optimization};
+    \node [decision, below of=model] (decide) {Cost Function};
+    \node [block, below of=decide, node distance=3cm] (stop) {Trained Model};
+    % Draw edges
+    \path [line] (input) -- (rot);
+    \path [line] (rot) -- (crop);
+    \path [line] (crop) -- (corr);
+    \path [line] (corr) -- (norm);
+    \path [line] (norm) -- (model);
+    \path [line] (model) -- (decide);
+    \path [line] (decide) -| node [near start] {} (update);
+    \path [line] (update) |- (input);
+    \path [line] (update) -- (model);
+    \path [line] (decide) -- node {}(stop);
+
+\end{tikzpicture}
+
+
+\end{document}

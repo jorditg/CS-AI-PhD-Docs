@@ -1,0 +1,25 @@
+Dear Editors,
+
+Sincerest thanks for your response and reviewers' comments on our manuscript helping us on improving the quality of our final work. We have grouped the reviewers' comments by sections:
+
+Introduction:
+R#1 ask for more information about ICA on introduction and less about Deep Learning. R#2 ask for more information specifically about CNNs and R#3 also thinks that information about Deep Learning is too general. Being a general appreciation we propose to increment information about ICA and be more specific describing CNNs.
+
+Related Work:
+R#2 claims that the work does not include any work about diabetic retinopathy (DR) and that some relevant issues have not been mentioned. It is out of the scope of our paper the design of a DR classifier. Our objective is the improvement of an existing visualization technique (pixel-wise) introducing a modification in the features found by a given classifier. In any case, following R#3 suggestion we agree that it is a good idea to broaden the sprectre of this section including some references to the state of the art DR classifiers. References suggested by R#1 and R#2 can also be included and briefly explained in this section in order to give a more wide perspective of the available visualization techniques.
+
+Methods:
+R#1 asks for clarification about components independence and of the advantadge of applying ICA to feature space. Components are independent by design. ICA values are calculated and propagated backwards for generating pixel-wise score maps (SM). We checked ICA SM of the reported samples with an ophthalmologist. From the interpretation of high-res. version of Fig.5 and of other images not published in the paper due to space limitations, the conclusions are that ICA2 SM have an almost perfect match with real lesions with a very low rate of false positives and false negatives. Other ICAs include statistical regularities not directly related with relevant lesions. From such an expert opinion we conclude that ICA acts as a filter separating lesion information present in images from other statistical regularities. We propose to include such interpretation in the paper. We agree also with R#1 that Fig. 4 & 5 can be improved. We propose to substitute them using a clearer SM visualization more suitable for small size paper presentation. 
+
+R#1 claims that for classification purposes, the original model is better due to its higher performance and asks for clarification of retraining objective. Retraining is done only in last layer with the objective of finding the optimal number of independent components. Obviously, for classification purposes we use the original model. ICA model is used for lesion identification (visualization purposes). 
+
+All R#3 minor corrections in 6-13 should be addressed.
+
+R#1 ask for a definition of QWK. We agree a reference is missing. We can add it.
+
+We would be glad to respond to any further questions and comments that you may have.
+
+Yours Sincerely,
+
+Jordi de la Torre
+

@@ -1,0 +1,95 @@
+
+\documentclass[crop,tikz]{standalone}
+\usepackage{tikz} 
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\usetikzlibrary{shadows,arrows}
+% Define the layers to draw the diagram
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+ 
+% Define block styles  
+\tikzstyle{materia}=[draw, fill=blue!20, text width=6.0em, text centered,
+  minimum height=1.5em,drop shadow]
+\tikzstyle{practica} = [materia, text width=8em, minimum width=10em,
+  minimum height=3em, rounded corners, drop shadow]
+\tikzstyle{texto} = [above, text width=6em, text centered]
+\tikzstyle{linepart} = [draw, thick, color=black!50, -latex', dashed]
+\tikzstyle{line} = [draw, thick, color=black!50, -latex']
+\tikzstyle{ur}=[draw, text centered, minimum height=0.01em]
+
+\tikzstyle{convolution} = [materia, text width=8em, minimum width=10em,
+minimum height=3em, rounded corners, drop shadow]
+ 
+% Define distances for bordering
+\newcommand{\blockdist}{1.3}
+\newcommand{\edgedist}{1.5}
+
+\newcommand{\practica}[2]{node (p#1) [practica]
+  {Pr\'actica #1\\{\scriptsize\textit{#2}}}}
+
+\newcommand{\convolution}[2]{node (p#1) [convolution]
+	{Convolution\\{\scriptsize\textit{#2}}}}
+\newcommand{\full}[2]{node (p#1) [convolution]
+	{Fully Connected\\{\scriptsize\textit{#2}}}}
+\newcommand{\out}[2]{node (p#1) [convolution]
+	{Output\\{\scriptsize\textit{#2}}}}
+\newcommand{\input}[2]{node (p#1) [convolution]
+	{Input\\{\scriptsize\textit{#2}}}}
+
+% Draw background
+\newcommand{\background}[5]{%
+  \begin{pgfonlayer}{background}
+    % Left-top corner of the background rectangle
+    \path (#1.west |- #2.north)+(-0.5,0.5) node (a1) {};
+    % Right-bottom corner of the background rectanle
+    \path (#3.east |- #4.south)+(+0.5,-0.25) node (a2) {};
+    % Draw the background
+    \path[fill=yellow!20,rounded corners, draw=black!50, dashed]
+      (a1) rectangle (a2);
+    \path (a1.east |- a1.south)+(0.8,-0.3) node (u1)[texto]
+      {\scriptsize\textit{ #5}};
+  \end{pgfonlayer}}
+
+\newcommand{\transreceptor}[3]{%
+  \path [linepart] (#1.east) -- node [above]
+    {\scriptsize Transreceptor #2} (#3);}
+
+\begin{document}
+\begin{tikzpicture}[scale=0.7,transform shape]
+ 
+  % Draw diagram elements
+  \path \convolution {1}{S:3x3, F:8};
+  \path (p1.south)+(0.0,-1.0) \convolution{2}{S:3x3, F:16};
+  \path (p2.south)+(0.0,-1.0) \convolution{3}{S:3x3 F:16};
+  \path (p3.south)+(0.0,-1.5) \convolution{4}{S:3x3, F:32};
+  \path (p4.south)+(0.0,-1.0) \convolution{5}{S:3x3 F:32};
+  \path (p5.south)+(0.0,-1.5) \convolution{6}{S:3x3, F:64};
+  \path (p6.south)+(0.0,-1.0) \convolution{7}{S:3x3 F:64};
+  \path (p7.south)+(0.0,-1.5) \convolution{8}{S:3x3, F:128};
+  \path (p8.south)+(0.0,-1.0) \convolution{9}{S:3x3 F:128};
+  
+             
+  % Draw arrows between elements
+  \path [line] (p1.south) -- node [above] {} (p2);
+  \path [line] (p2.south) -- node [above] {} (p3);
+  \path [line] (p3.south) -- node [above] {} (p4);
+  \path [line] (p4.south) -- node [above] {} (p5);
+  \path [line] (p5.south) -- node [above] {} (p6);
+  \path [line] (p6.south) -- node [above] {} (p7);
+  \path [line] (p7.south) -- node [above] {} (p8);
+  \path [line] (p8.south) -- node [above] {} (p9);
+   
+  \background{p3}{p1}{p4}{p3}{FS: 512x512}
+  \background{p3}{p4}{p4}{p5}{FS: 256x256}
+  \background{p3}{p6}{p4}{p7}{FS: 128x128}
+  \background{p3}{p8}{p4}{p9}{FS: 64x64}
+
+\end{tikzpicture}
+\end{document} 

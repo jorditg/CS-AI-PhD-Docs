@@ -1,0 +1,11 @@
+best <- read.csv("best.csv")
+library(ggplot2)
+p <- ggplot(best, aes(bs,qwk_cv))
+p <- p + aes(shape=factor(loss)) 
+p <- p + geom_point(aes(colour=factor(loss)),size=4) 
+p <- p + geom_point(colour="grey90", size=1.5)
+p <- p + scale_x_log10()
+p <- p + ylab("Quadratic Weighted Kappa in CV set")
+p <- p + xlab("Batch size")
+p <- p + labs(shape="Loss", colour="Loss")
+p

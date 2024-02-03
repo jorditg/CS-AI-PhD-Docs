@@ -1,0 +1,4 @@
+Results filename: animated_20060523_50392_0100_PP_Rotation.npz
+Image target:
+     t  o                         file
+931  2  2  20060523_50392_0100_PP.jpeg

@@ -1,0 +1,4 @@
+Results filename: animated_20051130_59029_0400_PP_Rotation.npz
+Image target:
+     t  o                         file
+131  0  0  20051130_59029_0400_PP.jpeg

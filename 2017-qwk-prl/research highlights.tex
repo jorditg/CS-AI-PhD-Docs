@@ -1,0 +1,110 @@
+%% This is file `prletters-template.tex',
+%% 
+%% Copyright 2013 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+%%
+%% $Id: prletters-template-with-authorship.tex 69 2013-07-15 10:15:25Z rishi $
+%%
+%% This template has no review option
+%% 
+%% Use the options `twocolumn,final' to obtain the final layout
+\documentclass[times,twocolumn,final,authoryear]{elsarticle}
+
+%% Stylefile to load PR Letters template
+\usepackage{prletters}
+\usepackage{framed,multirow}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{latexsym}
+
+% Following three lines are needed for this document.
+% If you are not loading colors or url, then these are
+% not required.
+\usepackage{url}
+\usepackage{xcolor}
+\definecolor{newcolor}{rgb}{.8,.349,.1}
+
+%%%%%%%%%%%%%%%
+% jdelatorre added header
+\usepackage{tikz}
+\usepackage{blindtext, graphicx}
+\usepackage{smartdiagram}
+\newcommand{\degree}{\ensuremath{^{\circ}}\xspace} % adds degree sign 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % adds capability to < sign
+\usepackage{mathptmx}
+\usepackage{amsmath}
+
+% forced line break inside a tabular cell
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+% use it for example as \specialcell[t]{Foo\\bar} or \specialcell{Foo\\bar}
+%%%%%%%%%%%%%%%
+
+\journal{Pattern Recognition Letters}
+
+\begin{document}
+
+\clearpage
+\thispagestyle{empty}
+
+\ifpreprint
+  \vspace*{-1pc}
+\else
+%  \vspace*{-6pc}
+\fi
+
+\begin{table*}[!t]
+\ifpreprint\else\vspace*{-15pc}\fi
+
+\section*{Research Highlights (Required)}
+
+To create your highlights, please type the highlights against each
+\verb+\item+ command. 
+
+\vskip1pc
+
+\fboxsep=6pt
+\fbox{
+\begin{minipage}{.95\textwidth}
+It should be short collection of bullet points that convey the core
+findings of the article. It should  include 3 to 5 bullet points
+(maximum 85 characters, including spaces, per bullet point.)  
+\vskip1pc
+\begin{itemize}
+
+ \item Proposal of weighted kappa as loss function for ordinal regression in deep learning
+
+ \item Derivation of equations required for applying first order optimization algorithms
+
+ \item Solve a three use cases of ordinal regression using log and kappa losses
+
+ \item Performance comparison of the three cases trained with both losses
+
+ \item Check stability of the kappa loss function using different input and batch sizes
+
+\end{itemize}
+\vskip1pc
+\end{minipage}
+}
+
+\end{table*}
+
+\end{document}
